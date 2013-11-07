@@ -8,8 +8,8 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>{% block title %}Style Buzz{% endblock %}</title>
-	<meta name="description" content="">
+	<title>{% block title %}Social network analysis{% endblock %}</title>
+	<meta name="description" content="Social Network Analysis">
 	<meta name="author" content="Katherine Y. Chuang">
 
 	<!-- Mobile Specific Metas
@@ -25,70 +25,64 @@
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
-            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Dosis|News+Cycle|Josefin+Sans|Advent+Pro|Lato:300,400,700|' rel='stylesheet' type='text/css'>
+  <script src="/static/js/envision.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-            <script src="http://katychuang.pythonanywhere.com/static/envision.js"></script>
-            <link rel="stylesheet" type="text/css" href="http://katychuang.pythonanywhere.com/static/style.css">
-            {% block css %}        {% endblock %}
-
-            <style>
-                #tweetblock {border-bottom:1px solid #ccc;border-top:1px solid #ccc; margin:1em 0 1em 0; padding:1em 0 1em 0;}
-                #credits{
-                    color:gray;
-                    font-family:'Poiret One';
-                    font-size:10pt;
-                    margin:0px;padding:0px;
-                }
-            </style>
-
+  {% block css %}
+  {% endblock %}
 
 </head>
+
 <body>
 	<!-- Primary Page Layout
 	================================================== -->
 
-	<div class="wrapper">
+  <div class="wrapper">
 
+    {% include "includes/header.html" %}
 
-        {% include "includes/header.html" %}
+    {% if messages %}
+        <div class="flash">
+             {% for message in messages %}
+                <p>{{ message }}</p>
+             {% endfor %}
+        </div>
+    {% endif %}
 
+    {% block twitter %}
+    {% endblock %}
 
-            {% if messages %}
-                <div class="flash">
-                     {% for message in messages %}
-                        <p>{{ message }}</p>
-                     {% endfor %}
-                </div>
-            {% endif %}
+  	<hr>
 
-        {% block twitter %}        {% endblock %}
+    {% block main %}
+    {% endblock %}
 
-		<hr>
-
-        {% block main %}        {% endblock %}
-
-        <hr>
+    <hr>
   </div>
 
-        <span id="credits">
+    <span id="credits">
 		 	{% block credits %}
-                <center>
-                    Written by <a href="http://www.twitter.com/katychuang">@katychuang</a><br />
-                    Powered by Python/Django and SQLite3
-                </center>
-                <br />
-            {% endblock %}
-    	</span>
-	<!-- JS
-	================================================== -->
+          <center>
+              Written by <a href="http://www.twitter.com/katychuang">@katychuang</a><br />
+              Powered by Python: Django + NetworkX + SQLite3
+          </center>
+          <br />
+      {% endblock %}
+  	</span>
 
+<!-- JS
+================================================== -->
 
 <script type="text/javascript">
   WebFontConfig = {
-    google: { families: [ 'Poiret+One::latin','Quattrocento+Sans::latin', 'Muli',
-                'Cookie', 'Lobster'
+    google: {
+      families: [ 'Poiret+One::latin','Quattrocento+Sans::latin', 'Muli',
+                  'Cookie', 'Lobster', 'Advent+Pro', 'News+Cycle',
+                  'Josefin+Sans', 'Dosis', 'Source+Sans+Pro:200,400',
+                  'Lato:300,400,700'
          ] }
   };
+
   (function() {
     var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +

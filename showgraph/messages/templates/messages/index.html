@@ -40,39 +40,66 @@ Volume of Data Collected
 <p>&nbsp;</p>
 <p>Structural metrics for each sample</p>
 <table width="400" id="summary2">
-<thead id="summaryTH"><td>&nbsp;</td><td>Forum</td><td>Journal</td><td>Notes</td></thead>
-<tr>
-    <td>Time Period</td><td colspan="3">
-    <center>3 months // 24 months</center>
-</td></tr>
-<tr><td>Nodes</td>
-    <td>111 //
-    {% with fpNodes|length as fpL %}
-    {% with fcNodes|length as fcL %}
-    {{ author|length|add:fpL|add:fcL }}
-    {% endwith %}
-    {% endwith %}
-    {{ fNodes|length }}</td>
-    <td>143 //
-    {% with jpNodes|length as fpL %}
-    {% with jcNodes|length as fcL %}
-    {{ author|length|add:fpL|add:fcL }}
-    {% endwith %}
-    {% endwith %}
-    {{ jNodes|length }}</td>
-    <td>411 // {{ nNodes|length }}</td>
-</tr>
-<tr><td>Total Edges</td>
-    <td>2613 // {{ fEdge|length }}</td>
-    <td>1612 // {{ jEdge|length }}</td>
-    <td>411 // {{ nEdge|length }}</td>
-</tr>
-<tr><td>Unique Edges</td>
-    <td>181 // {{ fUEdge|length }}</td>
-    <td>424 // {{ jUEdge|length }}</td>
-    <td>292 // {{ nUEdge|length }}</td>
-</tr>
+    <thead id="summaryTH">
+        <td>&nbsp;</td>
+        <td>Forum</td>
+        <td>Journal</td>
+        <td>Notes</td>
+    </thead>
+    <tr>
+        <td>Time Period</td>
+        <td colspan="3">
+            <center>
+                3 months // 24 months
+            </center>
+    </td></tr>
+    <tr><td>Nodes</td>
+        <td>
+            111 //
+            {% with fpNodes|length as fpL %}
+            {% with fcNodes|length as fcL %}
+            {{ author|length|add:fpL|add:fcL }}
+            {% endwith %}
+            {% endwith %}
+            {{ fNodes|length }}
+        </td>
+        <td>
+            143 //
+            {% with jpNodes|length as fpL %}
+            {% with jcNodes|length as fcL %}
+            {{ author|length|add:fpL|add:fcL }}
+            {% endwith %}
+            {% endwith %}
+            {{ jNodes|length }}
+        </td>
+        <td>
+            411 // {{ nNodes|length }}
+        </td>
+    </tr>
+    <tr><td>Total Edges</td>
+        <td>
+            2613 // {{ fEdge|length }}
+        </td>
+        <td>
+            1612 // {{ jEdge|length }}
+        </td>
+        <td>
+            411 // {{ nEdge|length }}
+        </td>
+    </tr>
+    <tr><td>Unique Edges</td>
+        <td>
+            181 // {{ fUEdge|length }}
+        </td>
+        <td>
+            424 // {{ jUEdge|length }}
+        </td>
+        <td>
+            292 // {{ nUEdge|length }}
+        </td>
+    </tr>
 </table>
+
 <P>&nbsp;</p>
 
 {% endblock main %}
