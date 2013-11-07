@@ -40,11 +40,20 @@ def home(request):
     jUEdge = jEdge.values('sender').distinct()
     nUEdge = nEdge.values('sender').distinct()
 
-    return render_to_response('messages/index.html',
-        {'fp': fp, 'fc': fc, 'jp': jp, 'jc': jc, 'nm': n,
-          'allmsgs':allmsgs, 'fpNodes':fpu, 'fcNodes':fcu,
-          'jpNodes':jpu, 'jcNodes':jcu, 'nNodes':nu,
-          'fNodes': fp.count() + fc.count(), 'jNodes': jp.count() + jc.count(),
-          'fEdge': fEdge, 'jEdge': jEdge, 'nEdge': nEdge,
-          'fUEdge': fUEdge, 'jUEdge': jUEdge, 'nUEdge': nUEdge,
-          })
+    context = {'fp': fp, 'fc': fc, 'jp': jp, 'jc': jc, 'nm': n,
+              'allmsgs':allmsgs, 'fpNodes':fpu, 'fcNodes':fcu,
+              'jpNodes':jpu, 'jcNodes':jcu, 'nNodes':nu,
+              'fNodes': fp.count() + fc.count(), 'jNodes': jp.count() + jc.count(),
+              'fEdge': fEdge, 'jEdge': jEdge, 'nEdge': nEdge,
+              'fUEdge': fUEdge, 'jUEdge': jUEdge, 'nUEdge': nUEdge,
+              }
+    return render_to_response('messages/index.html', context)
+
+def add(request):
+    context = {'alert': 'This page is for adding data'}
+    return render_to_response('messages/index.html', context)
+
+def about(request):
+    context = {'alert': 'Social network analysis displayed with Django web framework'}
+    return render_to_response('messages/index.html', context)
+
