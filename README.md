@@ -1,12 +1,29 @@
 Python-Social-Network-Analysis
 ==============================
 
-Social network analysis displayed with Django web framework
+My attempt at social network analysis displayed with Django web framework, inspired by my dissertation study.
 
 
 ##Setup
-`mkvirtualenv -p ``which python3`` sna`
-`pip install -r requirements.txt`
+
+```sh
+# If you're using Python3, use this command.
+$ mkvirtualenv -p 'which python3' sna
+
+
+$ pip install -r requirements.txt
+
+```
+
+Next, you'll have to update your database settings. 
+
+##Running server
+
+
+
+```sh
+$ python manage.py runserver
+```
 
 
 
